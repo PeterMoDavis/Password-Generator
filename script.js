@@ -22,15 +22,17 @@ button.addEventListener("click", () => {
   let passwordArray = [];
 
   //length of password
-  let passwordLength = prompt("How long would you like the password to be");
-  console.log(passwordLength);
+  let passwordLength = prompt(
+    "How many characters would you like your password to be."
+  );
 
   //length check ---
   if (passwordLength < 8 || passwordLength > 128) {
-    alert("the password must be at least 8 characters and no more than 128 ");
+    alert("the password must be at least 8 characters and no more than 128. ");
     return;
   }
   //=========================================================================
+
   //confirms lowerCase
   let lowerCaseConfirm = confirm("Would you like lowercase in your password?");
   if (lowerCaseConfirm) {
@@ -43,7 +45,7 @@ button.addEventListener("click", () => {
   if (upperCaseConfirm) {
     passwordArray.push(...upperCase);
   }
-  // ===========================================================================
+  //===========================================================================
 
   //confirms numeric
   let numericConfirm = confirm("Would you like numerals in your password?");
@@ -51,6 +53,7 @@ button.addEventListener("click", () => {
     passwordArray.push(...numeric);
   }
   //=======================================================================
+
   //confirms specialCharacters
   let specialCharactersConfirm = confirm(
     "Would you like special characters in your password?"
@@ -58,6 +61,7 @@ button.addEventListener("click", () => {
   if (specialCharactersConfirm) {
     passwordArray.push(...specialCharacters);
   }
+  //========================================================================
   //checking if nothing was confirmed
   if (
     !lowerCaseConfirm &&
@@ -70,7 +74,6 @@ button.addEventListener("click", () => {
   }
 
   //looping through passwordArray and creating password string
-
   let finalPassword = [];
   for (let i = 1; i <= passwordLength; i++) {
     let randomIndex = randomNumber(passwordArray.length - 1);
@@ -79,6 +82,7 @@ button.addEventListener("click", () => {
   console.log(finalPassword.length);
   console.log(finalPassword.join(""));
 
+  //Selecting and displaying password to user
   let passWordTextArea = document.querySelector("#password");
   passWordTextArea.innerText = finalPassword.join("").toString();
 });
