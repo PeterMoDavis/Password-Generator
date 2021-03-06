@@ -5,7 +5,7 @@
 //===========================================
 
 //Different choices
-const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".split("");
+const specialCharacters = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".split("");
 const lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const numeric = "1234567890".split("");
