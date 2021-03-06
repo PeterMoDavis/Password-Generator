@@ -9,13 +9,18 @@ const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".split("");
 const lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const numeric = "1234567890".split("");
-let passwordArray = [];
+
+//random number function
+const randomNumber = (between) => Math.floor(Math.random() * between) + 1;
 
 //hookup button
-
 let button = document.querySelector("#generate");
 
+//function
 button.addEventListener("click", () => {
+  //clearing the previous content.
+  let passwordArray = [];
+
   //length of password
   let passwordLength = prompt("How long would you like the password to be");
   console.log(passwordLength);
@@ -38,7 +43,6 @@ button.addEventListener("click", () => {
   if (upperCaseConfirm) {
     passwordArray.push(...upperCase);
   }
-
   // ===========================================================================
 
   //confirms numeric
@@ -54,7 +58,7 @@ button.addEventListener("click", () => {
   if (specialCharactersConfirm) {
     passwordArray.push(...specialCharacters);
   }
-
+  //checking if nothing was confirmed
   if (
     !lowerCaseConfirm &&
     !upperCaseConfirm &&
@@ -64,7 +68,19 @@ button.addEventListener("click", () => {
     alert("You must pick at least one character for you password.");
     return;
   }
-  console.log(passwordArray);
+
+  //looping through passwordArray and creating password string
+
+  let finalPassword = [];
+  for (let i = 1; i <= passwordLength; i++) {
+    let randomIndex = randomNumber(passwordArray.length - 1);
+    finalPassword.push(passwordArray[randomIndex]);
+  }
+  console.log(finalPassword.length);
+  console.log(finalPassword.join(""));
+
+  let passWordTextArea = document.querySelector("#password");
+  passWordTextArea.innerText = finalPassword.join("").toString();
 });
 
 // Assignment Code
