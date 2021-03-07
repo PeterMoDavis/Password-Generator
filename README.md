@@ -6,10 +6,6 @@ I wanted to use JavaScript to provide logic so that the App would generate a ran
 
 You can use the Password Generator [HERE](https://petermodavis.github.io/Password-Generator/)
 
-## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
 ## Usage
 
 Just press the Generate Password button. Answer some questions and it will generate a password.
